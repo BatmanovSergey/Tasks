@@ -1,42 +1,39 @@
-﻿//12.
+﻿// задача 12.
+// Напишите программу, которая будет принимать на вход два числа и
+// выводить, является ли первое число кратным второму.
+// Если число 1 не кратно числу 2, то программа выводит остаток от деления
+// пример:
+// 34, 5 -> не кратно, остаток 4
+// 16, 4 -> кратно
 
+// решение 1 простое
 Console.Write("Введите целое число1: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Введите целое число2: ");
 int num2 = Convert.ToInt32(Console.ReadLine());
 
-if (num1 % num2 == 0) Console.WriteLine("Кратно");
-else Console.WriteLine($"Не кратно, остаток {num1 % num2}");
+if (num1 % num2 == 0) Console.WriteLine("Решение-1: Кратно");
+else Console.WriteLine($"Решение-1: Не кратно, остаток {num1 % num2}");
 
-//решение 2 через метод
+// решение 2 через метод, в котором используется булевый оператор (выдаёт "да" или "нет")
 
-// Console.Write("Введите первое число: ");
-// int num1 = Convert.ToInt32(Console.ReadLine());
+bool Multiple(int number1, int number2) // создаем метод
+{
+    return number1 % number2 == 0;
+}
 
-// Console.Write("Введите второе число: ");
-// int num2 = Convert.ToInt32(Console.ReadLine());
+bool multiple = Multiple(num1,num2);
 
-// bool Multiple(int number1, int number2)
-// {
-//     return number1 % number2 == 0;
-// }
+Console.WriteLine(multiple? "Решение-2: Кратно" : $"Решение-2: не кратно, остаток {num1 % num2}");
 
-// bool multiple = Multiple(num1,num2);
-// Console.WriteLine(multiple? "Кратно" : $"не кратно, остаток {num1 % num2}");
+// решение 3 через метод, в котором используем оператор, который возвращает целые числа int
+// и в rest сохраняем остаток от деления
 
-//решение 3 через метод
+int Multiplicity(int number1, int number2) // создаем метод
+{
+    return number1 % number2;
+}
 
-// Console.Write("Введите первое число: ");
-// int num1 = Convert.ToInt32(Console.ReadLine());
-
-// Console.Write("Введите второе число: ");
-// int num2 = Convert.ToInt32(Console.ReadLine());
-
-// int Multiple(int number1, int number2)
-// {
-//     return number1 % number2;
-// }
-
-// int rest = Multiple(num1,num2);
-// Console.WriteLine(rest == 0? "Кратно" : $"не кратно, остаток {rest}");
+int rest = Multiplicity(num1,num2);
+Console.WriteLine(rest == 0? "Решение-3: Кратно" : $"Решение-3: не кратно, остаток {rest}");

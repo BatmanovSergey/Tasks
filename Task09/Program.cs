@@ -32,6 +32,7 @@ Console.WriteLine($"Решение-3: Наибольшая цифра числа
 // Решение-4: распишем работу тернарного оператора
 int res = default; // default - показывает, что у нас будет какое-то значение, которое мы ещё не определили
                    // также можно использовать int res = 0
+                   
 if (firstDigit > secondDigit) res = firstDigit;
 else res = secondDigit;
 Console.WriteLine($"Решение-4: Наибольшая цифра числа {num} = {res}");
