@@ -24,10 +24,13 @@ Console.WriteLine(multipul?"Кратно":"Не кратно");
 
 // решение-2
 
+int numA =7;
+int numB =23;
+
 bool Multipul1(int first, int second)
 {
     return first % second ==0;
 
 }
 Console.Write("Решение 2: ");
-Console.WriteLine(Multipul1 (num, 7) && Multipul1 (num, 23)?"Кратно":"Не кратно");
+Console.WriteLine(Multipul1 (num, numA) && Multipul1 (num, numB)?"Кратно":"Не кратно");
