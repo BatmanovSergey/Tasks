@@ -7,6 +7,7 @@
 // 16, 4 -> кратно
 
 // решение 1 простое
+
 Console.Write("Введите целое число1: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
 
