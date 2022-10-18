@@ -1,45 +1,62 @@
-﻿// задача 09. Напишите программу, которая выводит
-// 1. случайное число из отрезка [10, 99] и показывает
-// 2. наибольшую цифру числа.
+﻿// задача 09. 
+// 1. Напишите программу, которая выводит случайное число из отрезка [10, 99] 
+// 2. и показывает наибольшую цифру числа.
+// пример:
 // 78 -> 8
 // 12-> 2
 // 85 -> 8
 
-int num = new Random().Next(10, 100);
+int num = new Random().Next(10, 100); // выдаёт случайные числа в диапазаоне 10-99 (100 не берётся)
+Console.WriteLine($"Случайное число из диапазаона 10-99 -> {num}");
 
-Console.WriteLine($"Случайное число из диапазаона 10-99 {num}");
+int firstDigit = num / 10; //78 / 10 = 7
+int secondDigit = num % 10; //78 % 10 = 8
 
-int first = num / 10; //78 / 10 = 7
-int second = num % 10; //78 % 10 = 8
+//Простое решение-1:
 
-if (first > second) Console.WriteLine($"наибольшая цифра числа {num} = {first}");
-else Console.WriteLine($"наибольшая цифра числа {num} = {second}");
+if (firstDigit > secondDigit) Console.WriteLine($"Решение-1: наибольшая цифра числа {num} = {firstDigit}");
+else Console.WriteLine($"Решение-1: наибольшая цифра числа {num} = {secondDigit}");
 
-// int num = new Random().Next(10, 100);
-// Console.WriteLine($"Случайное число из диапазона 10 - 99 -> {num}");
+// Решение-2 через встроенный метод определения максимального значения в C#, не проверяет на равенство чисел
 
-// int firstDigit = num / 10; // 78 / 10 = 7
-// int secondDigit = num % 10; // 78 % 10 = 8
+int max = Math.Max(firstDigit, secondDigit);
+Console.WriteLine($"Решение-2: наибольшая цифра числа {num} = {max}");
 
-// int res = firstDigit;
-// if(secondDigit > firstDigit) res = secondDigit;
-// Console.WriteLine($"Наибольшая цифра числа {num} = {res}");
+// Решение-3 с использованием тернарного оператора:
+// если firstDigit больше secondDigit,(?) означает "тогда" в переменную result запишем firstDigit,
+// (:) означает "иначе" в переменную result запишем secondDigit
 
-// int result = firstDigit > secondDigit ? firstDigit : secondDigit;
-// Console.WriteLine($"Наибольшая цифра числа {num} = {result}");
+int result = firstDigit > secondDigit ? firstDigit : secondDigit;
+Console.WriteLine($"Решение-3: Наибольшая цифра числа {num} = {result}");
 
-// Console.Write($"Наибольшая цифра числа {num} = ");
-// Console.Write(firstDigit > secondDigit ? firstDigit : secondDigit);
+// Решение-4: распишем работу тернарного оператора
+int res = default; // default - показывает, что у нас будет какое-то значение, которое мы ещё не определили
+                   // также можно использовать int res = 0
+if (firstDigit > secondDigit) res = firstDigit;
+else res = secondDigit;
+Console.WriteLine($"Решение-4: Наибольшая цифра числа {num} = {res}");
 
-int MaxDigit(int number)
+// Решение-5 оптимизируем решение-4:
+int res1 = firstDigit;
+if (secondDigit > firstDigit) res1 = secondDigit;
+Console.WriteLine($"Решение-5: Наибольшая цифра числа {num} = {res1}");
+
+// Решение-6 с использованием тернарного оператора, но без добавления новой переменной:
+Console.Write($"Решение-6: Наибольшая цифра числа {num} = ");
+Console.WriteLine(firstDigit > secondDigit ? firstDigit : secondDigit);
+
+// Решение-7 через создание функции
+
+int MaxDigit(int number) // наш метод возвращает целое число int и называется MaxDigit
+                         // в метод мы отправляем также целое число (int number)
 {
     int firstDigit = number / 10; // 78 / 10 = 7
     int secondDigit = number % 10; // 78 % 10 = 8
-    return firstDigit > secondDigit ? firstDigit : secondDigit;
+    //используем здесь тернарный опреатор сразу в return
+    return firstDigit > secondDigit ? firstDigit : secondDigit; // return возвращает значение
 }
 
-int num = new Random().Next(10, 100);
-Console.WriteLine($"Случайное число из диапазона 10 - 99 -> {num}");
-
-int maxDigit = MaxDigit(num);
-Console.WriteLine($"Наибольшая цифра числа {num} = {maxDigit}");
+// вызов метода
+int maxDigit = MaxDigit(num); 
+                              
+Console.WriteLine($"Решение-7: Наибольшая цифра числа {num} = {maxDigit}");
