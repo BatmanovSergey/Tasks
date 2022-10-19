@@ -7,31 +7,19 @@
 
 Console.Write("Введите положительное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-
 if (num < 100) Console.WriteLine($"У числа {num} третьей цифры нет");
 
-else if (num > 1000)
+else
 {
     int thirdDigit = ThirdDigitInt(num);
     Console.WriteLine($"У числа {num} третья цифра это {thirdDigit}");
 }
 
-else if (num < 1000)
+int ThirdDigitInt(int number) // наш метод
 {
-    int thirdDigit = ThirdDigitRem(num);
-    Console.WriteLine($"У числа {num} третья цифра это {thirdDigit}");
-}
-
-int ThirdDigitInt(int number) // наш метод 1
-{
-    while (number > 1000)
+    while (number >= 1000)
     {
         number = number / 10;
     }
-    return ThirdDigitRem(number);
-}
-
-int ThirdDigitRem(int number1) // наш метод 2
-{
-    return number1 % 10;
+    return number % 10;
 }
