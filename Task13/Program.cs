@@ -9,27 +9,27 @@ if (num < 100) Console.WriteLine($"У числа {num} третьей цифры
 
 else if (num > 1000)
 {
-    int thirdDigit1 = ThirdDigit1(num);
-    Console.WriteLine($"У числа {num} третья цифра это {thirdDigit1}");
+    int thirdDigit = ThirdDigitInt(num);
+    Console.WriteLine($"У числа {num} третья цифра это {thirdDigit}");
 }
 
 else if (num < 1000)
 {
-    int thirdDigit2 = ThirdDigit2(num);
-    Console.WriteLine($"У числа {num} третья цифра это {thirdDigit2}");
+    int thirdDigit = ThirdDigitRem(num);
+    Console.WriteLine($"У числа {num} третья цифра это {thirdDigit}");
 }
 
-int ThirdDigit1(int number) // наш метод 1
+int ThirdDigitInt(int number) // наш метод 1
 {
     int answer = number;
     while (answer > 1000)
     {
         answer = answer / 10;
     }
-    return ThirdDigit2(answer);
+    return ThirdDigitRem(answer);
 }
 
-int ThirdDigit2(int number) // наш метод 2
+int ThirdDigitRem(int number) // наш метод 2
 {
     return number % 10;
 }
