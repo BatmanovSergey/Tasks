@@ -19,7 +19,7 @@ int SecondNumber(int number) // наш метод
 Console.Write("Введите трёхзначное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-if (num >= 1000 || num < 99 || num <= -1000 || num < -99 ) Console.WriteLine($"{num} - Не трёхзначное число");
+if (num >= 1000 || num <= -1000 || num < 99 && num > -99) Console.WriteLine($"{num} - Не трёхзначное число");
 
 else
 {

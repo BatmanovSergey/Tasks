@@ -24,7 +24,9 @@ int num = Convert.ToInt32(Console.ReadLine());
 
 bool digit = IsThreeDigit(num);
 
-Console.WriteLine(digit ? $"вторая цифра числа {num} равна {SecondNumber(num)}": $"число {num} не трехзначное");
+int secondNumber = SecondNumber(num);
+
+Console.WriteLine(digit ? $"вторая цифра числа {num} равна {secondNumber}": $"число {num} не трехзначное");
 
 // другой вариант записи строки выше
 // if (digit) Console.WriteLine($"вторая цифра числа {num} равна {SecondNumber(num)}");
