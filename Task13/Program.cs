@@ -7,7 +7,7 @@
 
 Console.Write("Введите положительное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-if (num < 100) Console.WriteLine($"У числа {num} третьей цифры нет");
+if (num < 100 && num > -100) Console.WriteLine($"У числа {num} третьей цифры нет");
 
 else
 {
@@ -16,7 +16,9 @@ else
 }
 
 int ThirdDigitInt(int number) // наш метод
+
 {
+    if (number < 0) number = -number;
     while (number >= 1000)
     {
         number = number / 10;
