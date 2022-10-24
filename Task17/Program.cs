@@ -1,4 +1,4 @@
-﻿// задача17. 
+﻿// задача 17
 // Напишите программу, которая принимает на вход
 // координаты точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт
 // номер четверти плоскости, в которой находится эта точка.
@@ -7,7 +7,7 @@
 Console.WriteLine("Введите координаты точки: ");
 Console.Write("X: ");
 int x = Convert.ToInt32(Console.ReadLine());
-Console.Write("X: ");
+Console.Write("Y: ");
 int y = Convert.ToInt32(Console.ReadLine());
 
 int Quater(int xc, int yc)
@@ -21,8 +21,14 @@ int Quater(int xc, int yc)
 }
 
 int quater = Quater(x, y);
-string result = quater > 0
-                      ? $"Указанные координаты соответсвуют четверти -> {quater}"
-                      : "Введенынекорректные координты";
 
-Console.Write(result);
+// Вывод результата через новую переменную string result - строка и тернарный оператор
+string result = quater > 0 
+                      ? $"Указанные координаты соответсвуют четверти -> {quater}"
+                      : "Введены некорректные координты";
+Console.WriteLine(result); // печать переменной string result
+
+// печать сразу через тернарный оператор, без дополнительной переменной
+Console.WriteLine(quater > 0
+                      ? $"Указанные координаты соответсвуют четверти -> {quater}"
+                      : "Введены некорректные координты");
