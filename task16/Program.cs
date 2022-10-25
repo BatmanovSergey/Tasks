@@ -7,8 +7,7 @@
 // 25, 5 -> да
 // 8,9 -> нет 
 
-bool Square(int number1, int number2)
-
+bool Square(int number1, int number2) // Наш метод
 {
     return number1 * number1 == number2 || number2 * number2 == number1;
 }
