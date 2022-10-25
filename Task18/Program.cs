@@ -6,16 +6,16 @@
 Console.Write("Введите номер четверти: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-string Quater(int number)
+string? Quater(int number) // ? после типа говорит о том, что этот тип Nullable, т.е. может иметь значение null
 {
     if (number == 1) return "x > 0 и y > 0";
     if (number == 2) return "x < 0 и y > 0";
     if (number == 3) return "x < 0 и y < 0";
     if (number == 4) return "x > 0 и y < 0";
-    return null;
+    return null!;
 }
 
-string quater = Quater(num);
+string? quater = Quater(num);
 
 Console.WriteLine(quater == null
                 ? "Некорректный номер четверти"
