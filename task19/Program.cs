@@ -6,17 +6,19 @@
 // 23432 -> да
 // 12821 -> да
 
+// Решение простое
+
 bool FiveDigit(int number) // метод 1
 {
-    return (number > 9999 || number < -9999);
+    return (number > 9999 && number < 100000 || number < -9999 && number > -100000);
 }
 
-bool Palindrom(int number) // метод 2
+bool Palindrome(int number1) // метод 2
 {
-    int first = number / 10000;
-    int fifth = number % 10;
-    int fourth = number % 10 % 10;
-    int second = number % 10 % 10 % 10 % 10;
+    int first = number1 / 10000;
+    int fifth = number1 % 10;
+    int fourth = number1 / 10 % 10;
+    int second = number1 / 1000 % 10;
     return (first == fifth && second == fourth);
 }
 
@@ -26,7 +28,7 @@ int num = Convert.ToInt32(Console.ReadLine());
 bool fiveDigit = FiveDigit(num);
 if (fiveDigit)
 {
-    bool palindrom = Palindrom(num);
+    bool palindrom = Palindrome(num);
     Console.WriteLine(palindrom ? $"Да, число {num} является палиндромом"
                                 : $"нет, число {num} не является палиндромом");
 }

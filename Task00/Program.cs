@@ -13,7 +13,7 @@ int num = Convert.ToInt32(Console.ReadLine());
 
 // int num1 = Int.TryParse - проверка
 
-// int num1 = Int.Parse(Console.ReadLine()); - анаог Convert.ToInt32 но более простой
+// int num1 = Int.Parse(Console.ReadLine()); - аналог Convert.ToInt32 но более простой
 
 // string str = Console.ReadLine();
 // int n = Convert.ToInt32(str)
