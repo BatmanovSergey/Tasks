@@ -6,12 +6,12 @@
 // Решение через переменную double  с использованием встроенного метода Math.Pow
 
 Console.Write("Введите натуральное число: ");
-double num = Convert.ToInt32(Console.ReadLine());
+double num = Convert.ToDouble(Console.ReadLine());
 
 if (num <= 0) Console.WriteLine($"Некорректное число");
-else Table1(num);
+else Table(num);
 
-void Table1(double number) 
+void Table(double number) 
 { 
         double count = 1;
         while (count <= number)
