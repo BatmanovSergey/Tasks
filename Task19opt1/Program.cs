@@ -28,7 +28,6 @@ bool Palindrome(int number1) // метод 2
 
 Console.Write("Введите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-
 bool fiveDigit = FiveDigit(num);
 if (fiveDigit)
 {

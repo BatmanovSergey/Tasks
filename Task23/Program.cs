@@ -5,14 +5,14 @@
 
 // Простое решение
 
-Console.Write("Введите натуральное число1: ");
+Console.Write("Введите натуральное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-
 if (num <= 0) Console.WriteLine($"Некорректное число");
-else Table(num);
+else Console.WriteLine($"Таблица кубов чисел от 1 до {num}:");
+Table(num);
 
-void Table(int number)
+void Table(int number) // Метод
 {
     int count = 1;
     while (count <= number)
