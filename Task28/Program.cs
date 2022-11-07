@@ -5,35 +5,18 @@
 // 5 -> 120
 
 
-int Production(int number)
+int Factorial(int number)
 {
-    int prod = 1;
+    int fact = 1;
     for (int i = 1; i <= number; i++)
     {
-        prod = prod*i;
+        fact = fact*i;
     }
-    return prod;
+    return fact;
 }
 
 Console.Write("Введите положительное число: ");
 int num = Convert.ToInt32(Console.ReadLine());
 
-int production = Production(num);
-Console.Write($"произведение чисел от 1 до {num} = {production}");
-
-// Console.Write("введите число:");
-// int a = Convert.ToInt32(Console.ReadLine());
-
-// int Factorial(int num)
-// {
-//     int com = 1;
-
-//     for (int i = 1; i <= num; i++)
-//     {
-//          com*= i;  
-//     }
-//     return com ;
-// }
-
-// int factorials = Factorial(a);
-// Console.WriteLine($"Произведение чисел от 1 до {a} = {factorials}");
+int factorial = Factorial(num);
+Console.Write($"произведение чисел от 1 до {num} = {factorial}");
