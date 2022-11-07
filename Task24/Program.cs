@@ -5,10 +5,6 @@
 // 4 -> 10
 // 8 -> 36
 
-
-Console.Write("Введите натуральное число: ");
-int num = Convert.ToInt32(Console.ReadLine());
-
 int SumNumbers(int number) // формальный параметр 
 {
     int sum = 0;
@@ -18,6 +14,9 @@ int SumNumbers(int number) // формальный параметр
     }
     return sum;
 }
+
+Console.Write("Введите натуральное число: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
 if (num > 0) // условный оператор
 {
