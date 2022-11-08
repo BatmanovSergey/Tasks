@@ -1,46 +1,43 @@
-﻿// Задача 30: Напишите программу, которая
-// выводит массив из 8 элементов, заполненный
+﻿// Задача 30: 
+// Напишите программу, которая выводит массив из 8 элементов, заполненный
 // нулями и единицами в случайном порядке.
-// [1,0,1,1,0,1,0,0]
+// Пример: [1,0,1,1,0,1,0,0]
 
-int[] CreateArray(int size)
+// Простое решение
+
+int[] FillArray(int[] size) // метод заполнения массива
 {
-    int[] array = new int [size];
-
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < size.Length; i++)
     {
-        array[i] = new Random().Next(0, 2);
+        size[i] = new Random().Next(0, 2); // берутся числа от 0 до 1, число 2 не входит
     }
-    return array;
+    return size;
 }
 
-void PrintArray(int[] arr)
+void PrintArray(int[] arr) // метод вывода массива на печать
 {
     for (int i = 0; i < arr.Length; i++)
     {
-        Console.Write(arr[i] + " ");
+        Console.Write(arr[i] + " "); // через добавления "+" можем прибавлять необходимые данные на выдачу
     }
-
 }
 
-Console.Write("Введите размер массива ");
-int size1 = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[8]; // создаем массив, по умолчанию он заполнен нулями
+FillArray(array); // вызываем метод заполнения массива и рандомно заполняем его 0 и 1
+PrintArray(array); // выводим массив на печать
 
-int[] size2 = CreateArray(size1);
-PrintArray(size2);
+
 
 // void FillArray(int[] arr)
 // {
-    
 //     for (int i = 0; i < arr.Length; i++)
 //     {
 //         arr[i]= new Random().Next(0,2);
-    
 //     }
 // }
+
 // void PrintArray(int[] arr)
 // {
-    
 //     Console.Write("[");
 //     for (int i = 0; i < arr.Length; i++)
 //     {
@@ -49,6 +46,7 @@ PrintArray(size2);
 //     }
 //     Console.WriteLine("]");
 // }
+
 // int[] array =new int [8];
 // FillArray(array);
 // PrintArray(array);
