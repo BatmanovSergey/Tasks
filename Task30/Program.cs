@@ -9,7 +9,7 @@ int[] FillArray(int[] size) // метод заполнения массива
 {
     for (int i = 0; i < size.Length; i++)
     {
-        size[i] = new Random().Next(0, 2); // берутся числа от 0 до 1, число 2 не входит
+        size[i] = new Random().Next(0, 2); // берутся случайные числа от 0 до 1, число 2 не входит
     }
     return size;
 }
@@ -26,7 +26,7 @@ int[] array = new int[8]; // создаем массив, по умолчани�
 FillArray(array); // вызываем метод заполнения массива и рандомно заполняем его 0 и 1
 PrintArray(array); // выводим массив на печать
 
-
+// Ещё один вариант решения:
 
 // void FillArray(int[] arr)
 // {
@@ -52,40 +52,3 @@ PrintArray(array); // выводим массив на печать
 // PrintArray(array);
 
 
-// int[] CreateArray(int len)
-// {
-//     int[] arr = new int[len];
-//     for (int i = 0; i<len; i++)
-//     {
-//         arr[i] = new Random().Next(0,2);
-//     }
-//     return arr;
-// }
-
-// void PrintArray (int[] arr)
-// {
-//     Console.Write("[");
-//     for (int i = 0; i<arr.Length; i++)
-//     {
-//         Console.Write(arr[i]);
-//         if (i<arr.Length-1) Console.Write(",");
-//     }
-//     Console.WriteLine("]");
-// }
-
-// Console.Write("Введите количество элементов массива: ");
-// int length = Convert.ToInt32(Console.ReadLine());
-// int[] array = CreateArray(length);
-// PrintArray(array);
-
-
-// int[] CreateArray(int len)
-//             {
-//                 int[] arr = new int[len];
-//                 Random rnd = new Random();
-//                 for (int i = 0; i < len; i++)
-//                 {
-//                     arr[i] = rnd.Next(0, 2);
-//                 }
-//                 return arr;
-//             }
