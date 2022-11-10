@@ -10,19 +10,17 @@
 int SumDigits(int number)
 {
     int sum = 0;
-    while (number > 0)
+    int modul = Math.Abs(number);
+    while (modul > 0)
     {
-        sum = sum + number % 10;
-        number = number / 10;
+        sum = sum + modul % 10;
+        modul = modul / 10;
     }
     return sum;
 }
 
-Console.Write("Введите положительное число: ");
+Console.Write("Введите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-if (num < 0) Console.Write("Некорректное число, введите положительное число: ");
-else
-{
-    int sumdigits = SumDigits(num);
-    Console.WriteLine($"Сумма цифр числа {num} = {sumdigits}");
-}
+
+int sumdigits = SumDigits(num);
+Console.WriteLine($"Сумма цифр числа {num} = {sumdigits}");
