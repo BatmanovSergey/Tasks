@@ -3,6 +3,8 @@
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 // Пример: [345, 897, 568, 234] -> 2
 
+// Решение.
+
 int[] CreateArrayRndInt(int size, int min, int max)
 {
     int[] array = new int[size];
@@ -25,7 +27,7 @@ void PrintArray(int[] array)
     Console.WriteLine("]");
 }
 
-int EvenNumbers(int[] array)
+int EvenElements(int[] array)
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
@@ -45,17 +47,17 @@ int num3 = Convert.ToInt32(Console.ReadLine());
 
 if (num1 > 0)
 {
-    if (num2 < num3)
+    if (num2 <= num3)
     {
         if (num2 > 99 && num2 < 1000 && num3 > 99 && num3 < 1000)
         {
             int[] arr = CreateArrayRndInt(num1, num2, num3);
             PrintArray(arr);
-            int evenNumbers = EvenNumbers(arr);
-            Console.WriteLine($"количество чётных чисел в массиве = {evenNumbers}");
+            int evenElements = EvenElements(arr);
+            Console.WriteLine($"количество чётных чисел в массиве = {evenElements}");
         }
         else Console.WriteLine("Неверный диапазон. Введите в диапазон трёхзначные положительные числа");
     }
-    else Console.WriteLine("Неверный диапазон. Верхняя граница диапазона должны быть больше нижней границы");
+    else Console.WriteLine("Неверный диапазон. Верхняя граница диапазона не может быть меньше нижней границы");
 }
 else Console.WriteLine("Неверный размер массива");
