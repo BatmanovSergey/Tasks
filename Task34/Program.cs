@@ -37,7 +37,6 @@ int EvenElements(int[] array)
     return count;
 }
 
-
 Console.Write("Введите размер массива: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Укажите положительное трёхзначное число - нижняя граница диапазона: ");

@@ -1,4 +1,4 @@
-﻿// Задача 38.
+﻿// Задача 38. Домашняя работа
 // Задайте массив вещественных чисел. 
 // Найдите разницу между максимальным и минимальным элементов массива.
 // Пример
@@ -10,8 +10,8 @@ double[] CreateArrayRndDouble(int size, int min, int max) // Метод созд
     Random rnd = new Random();
     for (int i = 0; i < size; i++)
     {
-        double num = rnd.NextDouble() * (max - min) + min;
-        array[i] = Math.Round(num, 1);
+        double number = rnd.NextDouble() * (max - min) + min;
+        array[i] = Math.Round(number, 1);
     }
     return array;
 }
@@ -27,5 +27,44 @@ void PrintArray(double[] array)
     Console.WriteLine("]");
 }
 
-double[] arr = CreateArrayRndDouble(8, -5, 5);
+double MaxElementArray(double[] array)
+{
+    double max = array[0];
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] > max) max = array[i];
+    }
+    return max;
+}
+
+double MinElementArray(double[] array)
+{
+    double min = array[0];
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] < min) min = array[i];
+    }
+    return min;
+}
+
+double DiffMaxMin (double[] array)
+{
+    double maximum = MaxElementArray(array);
+    double minimum = MinElementArray(array);
+    double res = maximum - minimum;
+    double result = Math.Round(res, 1);
+    return result;
+}
+
+Console.Write("Введите размер массива: ");
+int num1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Укажите число - нижняя граница диапазона: ");
+int num2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Укажите число - верхняя граница диапазона: ");
+int num3 = Convert.ToInt32(Console.ReadLine());
+
+double[] arr = CreateArrayRndDouble(num1, num2, num2);
 PrintArray(arr);
+
+double diffMaxMin = DiffMaxMin (arr);
+Console.Write($"Разница между максимальным и минимальным элементами массива = {diffMaxMin}");

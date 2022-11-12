@@ -29,19 +29,21 @@ void PrintArray(int[] array)
 
 int SumElementsOddPosition(int[] array)
 {
-    // int sum = 0;
-    // for (int i = 1; i < array.Length; i = i + 2)
-    // {
-    //     sum = sum + array[i];
-    // }
-    // return sum;
-
     int sum = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 1; i < array.Length; i = i + 2)
     {
-        if (i%2==1) sum = sum + array[i];
+        sum = sum + array[i];
     }
     return sum;
+    
+// Второй вариант метода:
+
+    // int sum = 0;
+    // for (int i = 0; i < array.Length; i++)
+    // {
+    //     if (i % 2 == 1) sum = sum + array[i];
+    // }
+    // return sum;
 }
 
 Console.Write("Введите размер массива: ");
@@ -53,9 +55,6 @@ int num3 = Convert.ToInt32(Console.ReadLine());
 
 int[] arr = CreateArrayRndInt(num1, num2, num3);
 PrintArray(arr);
+
 int sumElementsOddPosition = SumElementsOddPosition(arr);
 Console.WriteLine($"сумма элементов, стоящих на нечётных позициях = {sumElementsOddPosition}");
-
-
-// int num = 0%2;
-// Console.WriteLine(num);
