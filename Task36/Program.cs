@@ -27,16 +27,17 @@ void PrintArray(int[] array)
     Console.WriteLine("]");
 }
 
+    // Метод нахождения суммы элементов, стоящих на нечётных позициях.(оптимальный)
 int SumElementsOddPosition(int[] array)
 {
     int sum = 0;
-    for (int i = 1; i < array.Length; i = i + 2)
+    for (int i = 1; i < array.Length; i+=2)
     {
         sum = sum + array[i];
     }
     return sum;
-    
-// Второй вариант метода:
+
+    // Второй вариант метода:
 
     // int sum = 0;
     // for (int i = 0; i < array.Length; i++)

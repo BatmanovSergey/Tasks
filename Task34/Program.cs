@@ -44,6 +44,7 @@ int num2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Укажите положительное трёхзначное число - верхняя граница диапазона: ");
 int num3 = Convert.ToInt32(Console.ReadLine());
 
+// вариант условий при неверном вводе данных пользователем
 if (num1 > 0)
 {
     if (num2 <= num3)
