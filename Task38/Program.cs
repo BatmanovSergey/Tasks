@@ -63,7 +63,7 @@ int num2 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Укажите число - верхняя граница диапазона: ");
 int num3 = Convert.ToInt32(Console.ReadLine());
 
-double[] arr = CreateArrayRndDouble(num1, num2, num2);
+double[] arr = CreateArrayRndDouble(num1, num2, num3);
 PrintArray(arr);
 
 double diffMaxMin = DiffMaxMin (arr);
