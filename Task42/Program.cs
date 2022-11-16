@@ -5,7 +5,11 @@
 // 3 -> 11
 // 2 -> 10
 
-// Решение через string
+Console.Write("Введите десятичное число: ");
+int numberDec = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+// Решение 1: через string с конвертацией внутри метода
 
 string ConvertDecToBinary(int dec)
 {
@@ -18,28 +22,60 @@ string ConvertDecToBinary(int dec)
     return binary;
 }
 
-Console.Write("Введите десятичное число: ");
-int numberDec = Convert.ToInt32(Console.ReadLine());
-string numberBinary = ConvertDecToBinary(numberDec);
-Console.WriteLine($"Десятичное число {numberDec} в двоичном представлении будет выглядеть как: {numberBinary}.");
+string convertDecToBinary = ConvertDecToBinary(numberDec);
+Console.WriteLine($"Решение 1: через string с конвертацией внутри метода");
+Console.WriteLine($"Десятичное число {numberDec} в двоичном "
+                + $"представлении будет выглядеть как {convertDecToBinary}");
+Console.WriteLine();
 
+// Решение 2: через int с разворотом числа
 
-// Console.Write("Введите число: ");
-// int num = Convert.ToInt32(Console.ReadLine());
+int DecToBin(int number)
+{
+    int binNumber = 0;
+    int d10 = 1;
+    while (number > 0)
+    {
+        binNumber = binNumber + number % 2 * d10;
+        number /= 2;
+        d10 *= 10;
+    }
+    return binNumber;
+}
 
-// int DecToBin(int number)
-// {
-//     int binNumber = 0;
-//     int d10 = 1;
-//     while (number > 0)
-//     {
-//         binNumber = binNumber + number % 2 * d10;
-//         number /= 2;
-//         d10 *= 10;
-//     }
-//     return binNumber;
-// }
+int decToBin = DecToBin(numberDec);
+Console.WriteLine($"Решение 2: через int с разворотом числа");
+Console.WriteLine($"Число {numberDec} в двоичной системе = {decToBin}");
+Console.WriteLine();
 
-// int decToBin = DecToBin(num);
+// Решение 3: через string простое, без конвертации
 
-// Console.WriteLine($"Число {num} в двоичной системе = {decToBin}");
+string СonverterDigit(int num)
+{
+    string res = "";
+    while (num > 0)
+    {
+        res = $"{(num % 2)}{res}";
+        num /= 2;
+    }
+    return res;
+}
+string converterDigit = СonverterDigit(numberDec);
+Console.WriteLine("Решение 3: через string простое, без конвертации"); 
+Console.WriteLine($"Число {numberDec} в двоичном виде = {converterDigit}");
+Console.WriteLine();
+
+// Решение 4: через рекурсию
+
+int ConvertDecToBinaryRecurtion(int dec)
+ {     
+    if (dec == 0) return 0;    
+    if (dec == 1) return 1;     
+    return ConvertDecToBinaryRecurtion(dec/2) * 10 + dec % 2; 
+} 
+
+int convertDecToBinaryRecurtion = ConvertDecToBinaryRecurtion(numberDec); 
+Console.WriteLine("Решение 4: через рекурсию"); 
+Console.WriteLine($"Десятичное число {numberDec} в двоичном "
+                + $"представлении будет выглядеть как {convertDecToBinaryRecurtion}");
+Console.WriteLine();
