@@ -46,7 +46,6 @@ else if (b1 == b2 && k1 == k2) Console.WriteLine("Заданные прямые 
 else
 {
     double[] arr = CoordinatesPoint(b1, k1, b2, k2);
-    Console.Write($"Координаты общей точки заданных прямых: ");
+    Console.Write($"Координаты точки пересечения заданных прямых: ");
     PrintArray(arr);
 }
-
