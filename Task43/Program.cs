@@ -28,7 +28,6 @@ void PrintArray(double[] array)
     Console.WriteLine("]");
 }
 
-
 Console.WriteLine("Введите значения для первой прямой: ");
 Console.Write("b1: ");
 double b1 = Convert.ToDouble(Console.ReadLine());
