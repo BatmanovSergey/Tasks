@@ -36,4 +36,4 @@ return d;
 }
 
 double distance = Distance(x1, y1, x2, y2);
-Console.Write($"Расстояние между точками A и B = {Math.Round(distance, 2, MidpointRounding.ToZero)}");
+Console.Write($"Расстояние между точками A и B = {Math.Round(distance, 2, MidpointRounding.ToZero )}");
