@@ -63,8 +63,20 @@ double[] ArithmeticColumnsElements(int[,] matrix)
     return arithmeticSum;
 }
 
-int[,] arr = CreateMatrixRndInt(3, 3, 1, 11);
+Console.Write("Введите количество строк в массиве: ");
+int num1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов в массиве: ");
+int num2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Укажите число - нижняя граница диапазона: ");
+int num3 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Укажите число - верхняя граница диапазона: ");
+int num4 = Convert.ToInt32(Console.ReadLine());
+
+int[,] arr = CreateMatrixRndInt(num1, num2, num3, num4);
+Console.WriteLine($"Наш массив случайных чисел от {num3} до {num4}:");
 PrintMatrix(arr);
+Console.WriteLine();
+
 double[] arithmeticColumnsElements = ArithmeticColumnsElements(arr);
 Console.Write($"Среднее арифметическое каждого столбца:");
 PrintArray(arithmeticColumnsElements);

@@ -1,4 +1,4 @@
-﻿// Задача 50. 
+﻿// Задача 50. Домашняя работа
 // Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 // Например, задан массив:
@@ -7,7 +7,7 @@
 // 8 4 2 4
 // 1, 7 -> такого элемента в массиве нет
 
-int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
+int[,] CreateMatrix(int rows, int columns, int min, int max)
 {
     int[,] matrix = new int[rows, columns];
     Random rnd = new Random();
@@ -42,7 +42,7 @@ bool FindElement(int[,] matrix, int numrow, int numcolunm)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (i == numrow-1 && j == numcolunm-1) return true;
+            if (i == numrow - 1 && j == numcolunm - 1) return true;
         }
     }
     return false;
@@ -53,9 +53,11 @@ int minimum = Convert.ToInt32(Console.ReadLine());
 Console.Write("Укажите число - верхняя граница диапазона заполнения массива: ");
 int maximum = Convert.ToInt32(Console.ReadLine());
 
-int rndRows = new Random().Next(1, 11);
+Random rnd1 = new Random();
+int rndRows = rnd1.Next(1, 11);
+Random rnd2 = new Random();
 int rndColumns = new Random().Next(1, 11);
-int[,] createMatrix = CreateMatrixRndInt(rndRows, rndColumns, minimum, maximum);
+int[,] createMatrix = CreateMatrix(rndRows, rndColumns, minimum, maximum);
 Console.WriteLine();
 
 Console.WriteLine("Случайный двумерный массив создан");
@@ -70,7 +72,8 @@ Console.WriteLine();
 
 bool findElement = FindElement(createMatrix, findrow, findcolumn);
 Console.WriteLine(findElement ? "Да, в массиве такой элемент есть "
-                            + $"и это {createMatrix[findrow-1, findcolumn-1]}" : "Такого элемента в массиве нет");
+                            + $"и это {createMatrix[findrow - 1, findcolumn - 1]}"
+                            : "Такого элемента в массиве нет");
 Console.WriteLine();
 Console.WriteLine("Вывод массива для проверки:");
 PrintMatrix(createMatrix);
