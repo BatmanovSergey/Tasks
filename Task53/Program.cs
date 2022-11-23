@@ -43,8 +43,8 @@ void ReplaceArray(int [,] matrix)
 }
 
 
-int[,] array = CreateMatrixRndInt(3, 4, -100, 100);
-PrintMatrix(array);
+int[,] matr = CreateMatrixRndInt(3, 4, -10, 10);
+PrintMatrix(matr);
 Console.WriteLine();
-ReplaceArray(array);
-PrintMatrix(array);
+ReplaceArray(matr);
+PrintMatrix(matr);

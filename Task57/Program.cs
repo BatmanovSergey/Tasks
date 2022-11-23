@@ -34,16 +34,16 @@ void PrintMatrix(int[,] matrix)
 
 int[] MatrixToArray(int[,] matrix)
 {
-    int[] array = new int[matrix.Length];
+    int[] arr = new int[matrix.Length];
     int k = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            array[k++] = matrix[i, j];
+            arr[k++] = matrix[i, j];
         }
     }
-    return array;
+    return arr;
 }
 
 void PrintArray(int[] array)
@@ -76,16 +76,22 @@ void Dictionary(int[] array)
     Console.WriteLine($"число {num} встречается {count} раз");
 }
 
-int[,] array2D = CreateMatrixRndInt(2, 3, 1, 9);
-PrintMatrix(array2D);
+int[,] matr = CreateMatrixRndInt(5, 5, 1, 9);
+Console.WriteLine("Наша рандомная матрица");
+PrintMatrix(matr);
+Console.WriteLine();
 
-Console.WriteLine("");
+int[] matrixToArray = MatrixToArray(matr);
+Console.WriteLine("Наш одномерный массив выведенный из матрицы");
+PrintArray(matrixToArray);
+Console.WriteLine();
+Console.WriteLine();
 
-int[] arr = MatrixToArray(array2D);
-PrintArray(arr);
+Array.Sort(matrixToArray);
+Console.WriteLine("Наш отсортированный одномерный массив");
+PrintArray(matrixToArray);
+Console.WriteLine();
+Console.WriteLine();
 
-Array.Sort(arr);
-Console.WriteLine("");
-PrintArray(arr);
-Console.WriteLine("");
-Dictionary(arr);
+Console.WriteLine("Наш частотный словарь по данному массиву:");
+Dictionary(matrixToArray);

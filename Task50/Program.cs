@@ -35,7 +35,6 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-
 Console.Write("Укажите число - нижняя граница диапазона заполнения массива: ");
 int minimum = Convert.ToInt32(Console.ReadLine());
 Console.Write("Укажите число - верхняя граница диапазона заполнения массива: ");
@@ -57,6 +56,10 @@ Console.Write("Укажите номер столбца искомого эле�
 int findcolumn = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
 
+// Решение через условие
+
+Console.WriteLine("Решение через условие");
+
 if (findrow - 1 >= 0 && findrow - 1 < createMatrix.GetLength(0) &&
     findcolumn - 1 >= 0 && findcolumn - 1 < createMatrix.GetLength(1))
 {
@@ -64,7 +67,29 @@ if (findrow - 1 >= 0 && findrow - 1 < createMatrix.GetLength(0) &&
                     + $"и это {createMatrix[findrow - 1, findcolumn - 1]}");
 }
 else Console.WriteLine("Такого элемента в массиве нет");
-
 Console.WriteLine();
+
+// Решение моё первоначальное избыточное, с использованием метода, но без проверки на ввод отрицальных чисел
+
+Console.WriteLine("Решение через избыточный метод");
+
+bool FindElement(int[,] matrix, int numrow, int numcolunm)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (i == numrow - 1 && j == numcolunm - 1) return true;
+        }
+    }
+    return false;
+}
+
+bool findElement = FindElement(createMatrix, findrow, findcolumn);
+Console.WriteLine(findElement ? "Да, в массиве такой элемент есть "
+                            + $"и это {createMatrix[findrow - 1, findcolumn - 1]}"
+                            : "Такого элемента в массиве нет");
+Console.WriteLine();
+
 Console.WriteLine("Вывод массива для проверки:");
 PrintMatrix(createMatrix);

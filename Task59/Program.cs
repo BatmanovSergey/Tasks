@@ -58,31 +58,41 @@ void PrintArray(int[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        {
-            if (i < array.Length - 1) Console.Write($"{array[i]}, ");
-            else Console.Write($"{array[i]}");
-        }
+        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
+        else Console.Write($"{array[i]}");
     }
-    Console.Write("] ");
+    Console.WriteLine("]");
 }
 
 int[,] RemoveRowColumnMin(int[,] matrix, int[] arr)
 {
-    int rowdel = arr[0];
-    int columndel = arr[1];
-    int[,] newmatrix = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
-    for (int i = 0; i < matrix.GetLength(0) - 1; i++)
+    int[,] newMatrix = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
+    int row = 0; // индекс строки исходной матрицы
+    for (int i = 0; i < newMatrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1) - 1; j++)
+        if (row == arr[0]) row++;
+        int column = 0; // индекс столбца исходной матрицы
+        for (int j = 0; j < newMatrix.GetLength(1); j++)
         {
-
+            if (column == arr[1]) column++;
+            newMatrix[i, j] = matrix[row, column];
+            column++;
         }
+        row++;
     }
+    return newMatrix;
 }
 
-int[,] array = CreateMatrixRndInt(3, 4, 0, 10);
-PrintMatrix(array);
+
+int[,] matr = CreateMatrixRndInt(3, 4, 1, 10);
+PrintMatrix(matr);
 Console.WriteLine();
 
-int[] minElementMatrix = MinElementMatrix(array);
+int[] minElementMatrix = MinElementMatrix(matr);
 PrintArray(minElementMatrix);
+Console.WriteLine();
+Console.WriteLine($"Минимальный элемент в строке с индексом {minElementMatrix[0]},"
+                + $"столбце с индексом {minElementMatrix[1]}"); 
+Console.WriteLine(); 
+int[,] removeRowColumnMin = RemoveRowColumnMin(matr, minElementMatrix);
+PrintMatrix(removeRowColumnMin);
