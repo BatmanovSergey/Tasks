@@ -32,27 +32,30 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-int[,] ChangeArray(int[,] matrix)
+void ReplaceRowsColumns(int[,] matr)
 {
-    int[,] newmatrix = new int[matrix.GetLength(0), matrix.GetLength(1)];
-
-    for (int i = 0; i < newmatrix.GetLength(0); i++)
+    for (int i = 0; i < matr.GetLength(0) - 1; i++)
     {
-        for (int j = 0; j < newmatrix.GetLength(1); j++)
-        {
-            newmatrix[i, j] = matrix[j, i];
+        for (int j = i + 1; j < matr.GetLength(1); j++)
+        {             // int temp = matr[i,j];    // обычное решение через временную переменную 
+                      // matr[i,j] = matr[j,i];          
+                      // matr[j,i] = temp;          
+            (matr[i, j], matr[j, i]) = (matr[j, i], matr[i, j]); // решение через кортеж
         }
     }
-    return newmatrix;
 }
 
-int[,] matr = CreateMatrixRndInt(3, 3, -5, 5);
-PrintMatrix(matr);
-Console.WriteLine();
+Console.Write("Введите количество строк массива: m=");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов массива: n=");
+int n = Convert.ToInt32(Console.ReadLine());
 
-if (matr.GetLength(0) == matr.GetLength(1))
+int[,] matr = CreateMatrixRndInt(m, n, -5, 5);
+PrintMatrix(matr);
+Console.WriteLine(); 
+if (m == n)
 {
-    int[,] changeArray = ChangeArray(matr);
-    PrintMatrix(changeArray);
+    ReplaceRowsColumns(matr); 
+    PrintMatrix(matr);
 }
 else Console.WriteLine("Массив не квадратный, замена невозможна.");

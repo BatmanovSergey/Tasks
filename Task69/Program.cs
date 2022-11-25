@@ -25,6 +25,7 @@ if (num2 >= 0)
 }
 else Console.Write("Введите натуральную степень числа");
 Console.WriteLine();
+
 // Метод 2: тернарный оператор
 
 int Pow(int numA, int numB)
