@@ -13,10 +13,14 @@ int Ackermann(int num1, int num2)
 }
 
 
-Console.Write("Введите натуральное число M: ");
+Console.Write("Введите положительное число M: ");
 int M = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите натуральное число N: ");
+Console.Write("Введите положительное число N: ");
 int N = Convert.ToInt32(Console.ReadLine());
+if (M > 0 && N > 0)
+{
+    int ackermann = Ackermann(M, N);
+    Console.Write($"Функция Аккермана для чисел {M} и {N} = {ackermann}");
+}
+else Console.Write("Введены отрицательные числа!!! Введите положительные числа!!!");
 
-int ackermann = Ackermann(M, N);
-Console.Write($"Функция Аккермана для чисел {M} и {N} = {ackermann}");
