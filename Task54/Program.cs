@@ -67,3 +67,23 @@ Console.WriteLine();
 Console.WriteLine("Массив с упорядочением элементов по убыванию в каждой строке: ");
 OrderingRowsArray(matr);
 PrintMatrix(matr);
+
+// void MatrixSort(int[,] matrix)
+// {
+//     for (int row = 0; row < matrix.GetLength(0); row++)
+//     {
+//         for (int column = matrix.GetLength(1) - 1; column > 0; column--)
+//         {
+//             int minIndex = column;
+//             for (int j = 0; j < column; j++)
+//             {
+//                 if (matrix[row, j] < matrix[row, minIndex])
+//                     minIndex = j;
+//             }
+//             if (minIndex != column)
+//             {
+//                 (matrix[row, minIndex], matrix[row, column]) = (matrix[row, column], matrix[row, minIndex]);
+//             }
+//         }
+//     }
+// }
