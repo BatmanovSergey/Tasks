@@ -8,19 +8,18 @@ int Ackermann(int num1, int num2)
 {
     if (num1 == 0) return (num2 + 1);
     if (num1 > 0 && num2 == 0) return Ackermann(num1 - 1, 1);
-    if (num1 > 0 && num2 > 0) return Ackermann(num1 - 1, Ackermann(num1, num2 - 1));
-    return Ackermann(num1, num2);
+    return Ackermann(num1 - 1, Ackermann(num1, num2 - 1));
 }
 
 
 Console.Write("Введите положительное число M: ");
-int M = Convert.ToInt32(Console.ReadLine());
+int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите положительное число N: ");
-int N = Convert.ToInt32(Console.ReadLine());
-if (M > 0 && N > 0)
+int n = Convert.ToInt32(Console.ReadLine());
+if (m >= 0 && n >= 0)
 {
-    int ackermann = Ackermann(M, N);
-    Console.Write($"Функция Аккермана для чисел {M} и {N} = {ackermann}");
+    int ackermann = Ackermann(m, n);
+    Console.Write($"Функция Аккермана для чисел {m} и {n} = {ackermann}");
 }
 else Console.Write("Введены отрицательные числа!!! Введите положительные числа!!!");
 
